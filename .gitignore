@@ -1,3 +1,6 @@
+# Personal quality-of-life ignores
+build/
+
 # Compiled Object files
 *.slo
 *.lo
