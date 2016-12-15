@@ -1,5 +1,6 @@
 # Personal quality-of-life ignores
 build/
+*.swp
 
 # Compiled Object files
 *.slo
