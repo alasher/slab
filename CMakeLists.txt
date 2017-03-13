@@ -1,16 +1,19 @@
-CMAKE_MINIMUM_REQUIRED( VERSION 2.8 )
-PROJECT( slab C CXX )
+cmake_minimum_required(VERSION 3.6)
+project(slab)
 
-# Find graphics libs
-find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
+set(CMAKE_CXX_STANDARD 11)
+
 find_package(GLFW REQUIRED)
-
-# Include necessary dirs
-include_directories( "${PROJECT_SOURCE_DIR}/include" )
-include_directories( "${GLEW_INCLUDE_DIRS}")
-include_directories( "${GLFW_INCLUDE_DIR}")
+find_package(OpenGL REQUIRED)
 
 include_directories("include")
-add_subdirectory("src")
-add_subdirectory("examples")
+include_directories(${GLFW_INCLUDE_DIR})
+
+set(SOURCE_FILES src/context.cpp include/slab/context.h src/window.cpp)
+add_library(slab ${SOURCE_FILES})
+
+add_executable(example1 "examples/example1.cpp")
+
+target_link_libraries(example1 slab)
+target_link_libraries(example1 ${GLFW_LIBRARIES})
+target_link_libraries(example1 ${OPENGL_gl_LIBRARY})
