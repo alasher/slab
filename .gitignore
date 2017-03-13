@@ -1,6 +1,7 @@
 # Personal quality-of-life ignores
 build/
 cmake-build-debug/
+.idea/
 *.swp
 
 # Compiled Object files
