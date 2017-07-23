@@ -10,12 +10,17 @@ namespace Slab {
     // Virtual methods would be like open(), close(), setTitle, etc.
     // ex: GLFWWindow, SDLWindow, maybe even native OS window classes?
     Window::Window(std::string title) :
-            sTitle(title), pWindow(nullptr),
-            nWidth(1280), nHeight(720) {
+            pWindow(nullptr),
+            nWidth(1280),
+            nHeight(720),
+            sTitle(title)
+    {
         glfwInit();
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
         setWindowStatus(SLAB_WINDOW_OKAY);
@@ -40,7 +45,8 @@ namespace Slab {
         glfwMakeContextCurrent(pWindow);
         glfwSetKeyCallback(pWindow, Window::glfw_keypress_callback);
 
-        glViewport(0, 0, nWidth, nHeight);
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+
         return true;
     }
 

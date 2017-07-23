@@ -10,6 +10,7 @@
 #include <iostream>
 
 namespace Slab {
+
     enum SLAB_WINDOW_STATUS {
         SLAB_WINDOW_OKAY,
         SLAB_WINDOW_FAILED_TO_OPEN,
@@ -30,7 +31,7 @@ namespace Slab {
 
     private:
         GLFWwindow *pWindow;
-        bool bHasBeenOpened, bWindowIsOpen;
+        // bool bHasBeenOpened, bWindowIsOpen;
         short nWidth, nHeight;
         std::string sTitle;
         SLAB_WINDOW_STATUS eWindowStatus;

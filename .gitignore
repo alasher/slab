@@ -3,6 +3,7 @@ build/
 cmake-build-debug/
 .idea/
 *.swp
+*.DS_Store
 
 # Compiled Object files
 *.slo
