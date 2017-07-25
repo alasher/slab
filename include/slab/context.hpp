@@ -6,8 +6,8 @@
 #define SLAB_CONTEXT_H
 
 #include <iostream>
-#include "window.h"
-#include "scene.h"
+#include "window.hpp"
+#include "scene.hpp"
 
 namespace Slab {
     enum SLAB_CONTEXT_STATUS {

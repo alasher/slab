@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <slab/context.h>
+#include <slab/context.hpp>
 
 int main(int argc, char **argv) {
 
@@ -11,6 +11,8 @@ int main(int argc, char **argv) {
     std::cout << "Hello, world!" << std::endl;
 
     Slab::Scene main_scene;
+
+    // Slab::Triangle c(1);
 
     while(slab.isAlive())
     {

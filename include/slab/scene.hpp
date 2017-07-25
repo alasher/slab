@@ -1,13 +1,13 @@
 //
-//  scene.h
+//  scene.hpp
 //  slab
 //
 //  Created by Austin Lasher on 7/23/17.
 //
 //
 
-#ifndef scene_h
-#define scene_h
+#ifndef scene_hpp
+#define scene_hpp
 
 namespace Slab
 {
@@ -23,4 +23,4 @@ namespace Slab
     };
 }
 
-#endif /* scene_h */
+#endif /* scene_hpp */

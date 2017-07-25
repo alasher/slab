@@ -6,7 +6,7 @@
 //
 //
 
-#include <slab/scene.h>
+#include <slab/scene.hpp>
 
 namespace Slab
 {
