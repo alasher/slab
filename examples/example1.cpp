@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <slab/context.hpp>
+#include <slab/camera.hpp>
 
 int main(int argc, char **argv) {
 
@@ -13,6 +14,8 @@ int main(int argc, char **argv) {
     Slab::Scene main_scene;
 
     // Slab::Triangle c(1);
+    Slab::Camera *cam = new Slab::Camera();
+    main_scene.attachCamera(cam);
 
     while(slab.isAlive())
     {
@@ -21,11 +24,8 @@ int main(int argc, char **argv) {
         slab.render(main_scene);
     }
 
-    /*
-    // Don't necessarily need to add this right now.
-    Slab::Camera cam;
-    main_scene.addCamera(cam);
-    */
+
+    delete cam;
 
     return 0;
 }

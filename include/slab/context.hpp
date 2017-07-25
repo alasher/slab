@@ -2,14 +2,15 @@
 // Created by alasher on 3/11/17.
 //
 
-#ifndef SLAB_CONTEXT_H
-#define SLAB_CONTEXT_H
+#ifndef context_hpp
+#define context_hpp
 
 #include <iostream>
 #include "window.hpp"
 #include "scene.hpp"
 
-namespace Slab {
+namespace Slab
+{
     enum SLAB_CONTEXT_STATUS {
         SLAB_OKAY = 0,
         SLAB_DESTROYED,
@@ -36,4 +37,4 @@ namespace Slab {
     };
 }
 
-#endif //SLAB_CONTEXT_H
+#endif /* context_hpp */

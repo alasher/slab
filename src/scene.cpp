@@ -10,8 +10,6 @@
 
 namespace Slab
 {
-
-
     Scene::Scene() :
         hasCamera(false)
     {
@@ -22,9 +20,21 @@ namespace Slab
     }
 
     // TODO: Write camera class
-    void Scene::attachCamera()
+    void Scene::attachCamera(const Camera *cam)
     {
+        if (cam == nullptr) return;
+
         hasCamera = true;
+        camera = cam;
     }
 
+    void Scene::addObject(const Camera *cam)
+    {
+        attachCamera(cam);
+    }
+
+    void Scene::addObject(const Object *obj)
+    {
+        objects.push_back(obj);
+    }
 }

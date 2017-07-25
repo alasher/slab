@@ -9,8 +9,8 @@
 #ifndef object_hpp
 #define object_hpp
 
-namespace Slab {
-
+namespace Slab
+{
     class Object
     {
     public:

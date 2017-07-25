@@ -2,8 +2,8 @@
 // Created by alasher on 3/11/17.
 //
 
-#ifndef SLAB_WINDOW_H
-#define SLAB_WINDOW_H
+#ifndef window_hpp
+#define window_hpp
 
 #include <GLFW/glfw3.h>
 
@@ -17,6 +17,7 @@ namespace Slab {
         SLAB_WINDOW_FAILED_TO_OPEN,
         SLAB_WINDOW_CLOSED
     };
+
     class Window {
     public:
         Window(std::string title = "Slab");
@@ -45,4 +46,4 @@ namespace Slab {
     };
 }
 
-#endif //SLAB_WINDOW_H
+#endif /* window_hpp */
