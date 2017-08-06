@@ -23,9 +23,10 @@ namespace Slab
         ~Context();
 
         bool renderFrame();
-        bool render(Scene &scene);
+        bool render(const Scene &scene) const;
+        bool renderObject(const Camera &cam, const Object &obj) const;
         bool isAlive();
-        SLAB_CONTEXT_STATUS getStatus();
+        SLAB_CONTEXT_STATUS getStatus() const;
         void kill();
 
     private:

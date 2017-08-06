@@ -24,9 +24,21 @@ namespace Slab
         void attachCamera(const Camera *cam);
         void addObject(const Camera *obj);
         void addObject(const Object *obj);
+        inline bool hasCamera() const
+        {
+            return has_camera;
+        }
+        inline const std::vector<const Object *> &getObjects() const
+        {
+            return objects;
+        }
+        inline const Camera &getCamera() const
+        {
+            return *camera;
+        }
 
     private:
-        bool hasCamera;
+        bool has_camera;
         const Camera *camera;
 
         // TODO: Make something more efficient than this!

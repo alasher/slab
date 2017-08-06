@@ -23,8 +23,7 @@ namespace Slab {
         return render(*pScene);
     }
 
-    // TODO: Read camera info and objects from scene, render them
-    bool Context::render(Slab::Scene &scene)
+    bool Context::render(const Slab::Scene &scene) const
     {
         if (getStatus() != SLAB_OKAY) return false;
 
@@ -33,10 +32,29 @@ namespace Slab {
             if(!pWindow->open()) return false;
         }
 
+        if (!scene.hasCamera())
+        {
+            return false;
+        }
+
         glClear(GL_COLOR_BUFFER_BIT);
+
+        const std::vector<const Object *> objs = scene.getObjects();
+        const Camera &cam = scene.getCamera();
+
+        // TODO: Look into optimizations for this
+        for (const Object *obj : objs)
+        {
+            renderObject(cam, *obj);
+        }
 
         pWindow->swapBuffers();
         return true;
+    }
+
+    bool Context::renderObject(const Camera &cam, const Object &obj) const
+    {
+        return false;
     }
 
     // TODO: Maybe need something more specific than "Alive"
@@ -47,7 +65,7 @@ namespace Slab {
         return (pWindow->isReady() && getStatus() == SLAB_OKAY);
     }
 
-    SLAB_CONTEXT_STATUS Context::getStatus()
+    SLAB_CONTEXT_STATUS Context::getStatus() const
     {
         return eStatus;
     }

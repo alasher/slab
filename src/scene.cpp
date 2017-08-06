@@ -3,7 +3,7 @@
 namespace Slab
 {
     Scene::Scene() :
-        hasCamera(false)
+        has_camera(false)
     {
     }
 
@@ -16,7 +16,7 @@ namespace Slab
     {
         if (cam == nullptr) return;
 
-        hasCamera = true;
+        has_camera = true;
         camera = cam;
     }
 
