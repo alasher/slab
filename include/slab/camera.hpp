@@ -17,6 +17,7 @@ namespace Slab
     {
     public:
         Camera(int x = 0, int y = 0, int z = 0);
+        const float *getVertices() final;
     };
 }
 

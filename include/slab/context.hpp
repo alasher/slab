@@ -5,7 +5,6 @@
 #ifndef context_hpp
 #define context_hpp
 
-#include <iostream>
 #include "window.hpp"
 #include "scene.hpp"
 
@@ -25,7 +24,7 @@ namespace Slab
         bool renderFrame();
         bool render(const Scene &scene) const;
         bool renderObject(const Camera &cam, const Object &obj) const;
-        bool isAlive();
+        bool isAlive() const;
         SLAB_CONTEXT_STATUS getStatus() const;
         void kill();
 

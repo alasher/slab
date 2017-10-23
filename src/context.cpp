@@ -58,7 +58,7 @@ namespace Slab {
     }
 
     // TODO: Maybe need something more specific than "Alive"
-    bool Context::isAlive()
+    bool Context::isAlive() const
     {
         // If Window is not defined, return true.
         // If Window is defined, return true iff it's open

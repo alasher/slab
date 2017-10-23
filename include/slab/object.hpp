@@ -20,6 +20,10 @@ namespace Slab
         void push(int x, int y, int z);
         void moveTo(int x, int y, int z);
 
+        // TODO: Move this to a separate Model class
+        // Just doing this temporarily so I can test rendering something
+        virtual const float *getVertices() = 0;
+
     private:
         int position[3];
     };
