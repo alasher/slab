@@ -1,0 +1,10 @@
+Objects -> Things with a global position
+
+        Object
+          |
+    /     |     \
+Camera  Light   Mesh
+
+
+Mesh(Geometry, Material)
+Material(Shader, Image?)

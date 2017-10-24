@@ -9,10 +9,4 @@ namespace Slab
         
     }
 
-    // TODO: Remove this - move this to a model class
-    const float *Camera::getVertices()
-    {
-        return nullptr;
-    }
-
 }

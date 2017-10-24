@@ -9,13 +9,14 @@
 #ifndef triangle_h
 #define triangle_h
 
-#include "object.hpp"
+#include "geometry.hpp"
 
 namespace Slab {
 
-    class Triangle : public Object
+    class Triangle : public Geometry
     {
-        
+    public:
+        Triangle();
     };
 
 }

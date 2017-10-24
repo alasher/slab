@@ -7,6 +7,7 @@
 
 #include "window.hpp"
 #include "scene.hpp"
+#include "geometry.hpp"
 
 namespace Slab
 {
@@ -24,6 +25,7 @@ namespace Slab
         bool renderFrame();
         bool render(const Scene &scene) const;
         bool renderObject(const Camera &cam, const Object &obj) const;
+        bool renderGeometry(const Camera &cam, const Geometry &g) const;
         bool isAlive() const;
         SLAB_CONTEXT_STATUS getStatus() const;
         void kill();

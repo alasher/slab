@@ -11,7 +11,6 @@ namespace Slab
     {
     }
 
-    // TODO: Write camera class
     void Scene::attachCamera(const Camera *cam)
     {
         if (cam == nullptr) return;
@@ -27,6 +26,9 @@ namespace Slab
 
     void Scene::addObject(const Object *obj)
     {
-        objects.push_back(obj);
+        if (obj->isRenderable())
+        {
+            objects.push_back(obj);
+        }
     }
 }

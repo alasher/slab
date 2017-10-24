@@ -1,6 +1,8 @@
 #include <iostream>
 #include <slab/context.hpp>
 #include <slab/camera.hpp>
+#include <slab/triangle.hpp>
+#include <slab/mesh.hpp>
 
 int main(int argc, char **argv) {
 
@@ -12,6 +14,10 @@ int main(int argc, char **argv) {
     // Slab::Triangle c(1);
     Slab::Camera *cam = new Slab::Camera();
     main_scene.attachCamera(cam);
+
+    Slab::Triangle t_geom;
+    Slab::Mesh tri{t_geom};
+    main_scene.addObject(&tri);
 
     while(slab.isAlive())
     {
