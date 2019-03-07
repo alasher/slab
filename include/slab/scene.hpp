@@ -39,12 +39,10 @@ namespace Slab
 
     private:
         bool has_camera;
-        const Camera *camera;
+        const Camera *camera; // TODO: Change this. See camera.hpp
 
         // TODO: Make something more efficient than this!
-        // This is just a placeholder for testing :)
-        // We need a way to reference objects within the scene easily
-        // Array of pointers? Shared smart pointers?
+        // This is just a placeholder for testing.
         std::vector<const Object *> objects;
     };
 }

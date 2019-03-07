@@ -11,10 +11,10 @@
 
 namespace Slab
 {
-    enum SLAB_CONTEXT_STATUS {
-        SLAB_OKAY = 0,
-        SLAB_DESTROYED,
-        SLAB_WINDOW_FAILURE
+    enum class SLAB_STATUS : unsigned short {
+        OKAY = 0,
+        DESTROYED,
+        WINDOW_FAILURE
     };
 
     class Context {
@@ -27,14 +27,14 @@ namespace Slab
         bool renderObject(const Camera &cam, const Object &obj) const;
         bool renderGeometry(const Camera &cam, const Geometry &g) const;
         bool isAlive() const;
-        SLAB_CONTEXT_STATUS getStatus() const;
+        SLAB_STATUS getStatus() const;
         void kill();
 
     private:
         Window *pWindow;
         Scene *pScene;
-        SLAB_CONTEXT_STATUS eStatus;
-        void setStatus(SLAB_CONTEXT_STATUS newStatus);
+        SLAB_STATUS eStatus;
+        void setStatus(SLAB_STATUS newStatus);
 
     };
 }

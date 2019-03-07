@@ -3,12 +3,12 @@
 namespace Slab {
     Context::Context() :
         pScene(nullptr),
-        eStatus(SLAB_OKAY)
+        eStatus(SLAB_STATUS::OKAY)
     {
         pWindow = new Window();
         if (pWindow == nullptr)
         {
-            setStatus(SLAB_WINDOW_FAILURE);
+            setStatus(SLAB_STATUS::WINDOW_FAILURE);
         }
     }
 
@@ -25,7 +25,7 @@ namespace Slab {
 
     bool Context::render(const Slab::Scene &scene) const
     {
-        if (getStatus() != SLAB_OKAY) return false;
+        if (getStatus() != SLAB_STATUS::OKAY) return false;
 
         if (pWindow != nullptr && !pWindow->isOpen())
         {
@@ -54,6 +54,7 @@ namespace Slab {
 
     bool Context::renderObject(const Camera &cam, const Object &obj) const
     {
+        std::cout << "Rendering object!!" << std::endl;
         return false;
     }
 
@@ -62,21 +63,21 @@ namespace Slab {
     {
         // If Window is not defined, return true.
         // If Window is defined, return true iff it's open
-        return (pWindow->isReady() && getStatus() == SLAB_OKAY);
+        return (pWindow->isReady() && getStatus() == SLAB_STATUS::OKAY);
     }
 
-    SLAB_CONTEXT_STATUS Context::getStatus() const
+    SLAB_STATUS Context::getStatus() const
     {
         return eStatus;
     }
 
-    void Context::setStatus(SLAB_CONTEXT_STATUS newStatus)
+    void Context::setStatus(SLAB_STATUS newStatus)
     {
         eStatus = newStatus;
     }
 
     void Context::kill()
     {
-        setStatus(SLAB_DESTROYED);
+        setStatus(SLAB_STATUS::DESTROYED);
     }
 }

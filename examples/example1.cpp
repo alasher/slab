@@ -11,7 +11,10 @@ int main(int argc, char **argv) {
 
     Slab::Scene main_scene;
 
-    // Slab::Triangle c(1);
+    // Just do one dummy call to initialize the context
+    // TODO: Come up with a more flexible program flow, I shouldn't expect everyone to have to do this.
+    slab.render(main_scene);
+
     Slab::Camera *cam = new Slab::Camera();
     main_scene.attachCamera(cam);
 
@@ -21,8 +24,6 @@ int main(int argc, char **argv) {
 
     while(slab.isAlive())
     {
-        // TODO: Specify a scene object to render
-        // All scenes must have a camera
         slab.render(main_scene);
     }
 
