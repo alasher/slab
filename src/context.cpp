@@ -1,7 +1,3 @@
-//
-// Created by alasher on 3/11/17.
-//
-
 #include <slab/context.hpp>
 
 namespace Slab {

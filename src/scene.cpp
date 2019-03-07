@@ -1,11 +1,3 @@
-//
-//  scene.cpp
-//  slab
-//
-//  Created by Austin Lasher on 7/23/17.
-//
-//
-
 #include <slab/scene.hpp>
 
 namespace Slab

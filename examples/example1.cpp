@@ -1,7 +1,3 @@
-//
-// Created by alasher on 3/11/17.
-//
-
 #include <iostream>
 #include <slab/context.hpp>
 #include <slab/camera.hpp>
@@ -23,7 +19,6 @@ int main(int argc, char **argv) {
         // All scenes must have a camera
         slab.render(main_scene);
     }
-
 
     delete cam;
 

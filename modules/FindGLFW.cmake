@@ -1,9 +1,9 @@
 # Exports:
 # GLFW_FOUND - Boolean, indicates if GLFW was found.
 # GLFW_INCLUDE_DIR - Include path, for use with INCLUDE_DIRECTORIES
-# GLFW_LIBRARIES - Libraries to link, for use with TARGET_LINK_LIBRARIES 
+# GLFW_LIBRARIES - Libraries to link, for use with TARGET_LINK_LIBRARIES
 
-find_path( GLFW_INCLUDE_DIR 
+find_path( GLFW_INCLUDE_DIR
     NAMES
         GLFW/glfw3.h
     HINTS
@@ -25,7 +25,7 @@ find_path( GLFW_INCLUDE_DIR
 
 if (APPLE)
     find_library( GLFW_glfw_LIBRARY glfw
-        NAMES 
+        NAMES
             glfw
             glfw3
         HINTS
@@ -44,7 +44,7 @@ if (APPLE)
 else ()
     find_package(Threads REQUIRED)
     find_package(X11 REQUIRED)
-    
+
     if(NOT X11_Xrandr_FOUND)
         message(FATAL_ERROR "Xrandr library not found - required for GLFW")
     endif()
@@ -61,10 +61,10 @@ else ()
         message(FATAL_ERROR "Xinerama library not found - required for GLFW")
     endif()
 
-    list(APPEND GLFW_x11_LIBRARY "${X11_Xrandr_LIB}" "${X11_Xxf86vm_LIB}" "${X11_Xcursor_LIB}" "${X11_Xinerama_LIB}" "${CMAKE_THREAD_LIBS_INIT}" -lrt -lXi)
+    list(APPEND GLFW_x11_LIBRARY "${X11_Xrandr_LIB}" "${X11_Xxf86vm_LIB}" "${X11_Xcursor_LIB}" "${X11_Xinerama_LIB}" "${CMAKE_THREAD_LIBS_INIT}" -lrt -lXi -lX11 -ldl)
 
     find_library( GLFW_glfw_LIBRARY
-        NAMES 
+        NAMES
             glfw
             glfw3
         HINTS
@@ -102,7 +102,7 @@ endif()
 
 include(FindPackageHandleStandardArgs)
 
-find_package_handle_standard_args(GLFW 
+find_package_handle_standard_args(GLFW
     REQUIRED_VARS
         GLFW_INCLUDE_DIR
         GLFW_LIBRARIES

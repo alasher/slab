@@ -1,11 +1,3 @@
-//
-//  object.cpp
-//  slab
-//
-//  Created by Austin Lasher on 7/23/17.
-//
-//
-
 #include <slab/object.hpp>
 
 namespace Slab {
