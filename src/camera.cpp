@@ -1,12 +1,8 @@
 #include <slab/camera.hpp>
 
-namespace Slab
-{
+namespace slab {
 
-    Camera::Camera(int x, int y, int z) :
-        Object(x, y, z)
-    {
-        
+    Camera::Camera(int x, int y, int z) : Object(x, y, z) {
     }
 
-}
+}  // namespace slab

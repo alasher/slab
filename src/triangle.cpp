@@ -1,29 +1,21 @@
-//
-//  triangle.cpp
-//  slab
-//
-//  Created by Austin Lasher on 8/6/17.
-//
-//
-
-
 #include <slab/triangle.hpp>
 
-Slab::Triangle::Triangle() : Slab::Geometry()
-{
-    addPoint(-1.0, -1.0,  0.0);
-    addPoint( 0.0,  1.0,  0.0);
-    addPoint( 1.0,  1.0,  0.0);
+namespace slab {
 
-    sp = glCreateProgram();
-}
+    Triangle::Triangle() : Geometry() {
+        addPoint(-1.0, -1.0, 0.0);
+        addPoint(0.0, 1.0, 0.0);
+        addPoint(1.0, 1.0, 0.0);
 
-Slab::Triangle::~Triangle()
-{
-    glDeleteProgram(sp);
-}
+        sp = glCreateProgram();
+    }
 
-const char *Slab::Triangle::getPixelShader()
-{
-    return "Testing!!";
-}
+    Triangle::~Triangle() {
+        glDeleteProgram(sp);
+    }
+
+    const char *Triangle::getPixelShader() {
+        return "Testing!!";
+    }
+
+}  // namespace slab

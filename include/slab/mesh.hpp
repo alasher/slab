@@ -1,32 +1,22 @@
-//
-//  mesh.hpp
-//  slab
-//
-//  Created by Austin Lasher on 10/23/17.
-//
-
 #ifndef mesh_h
 #define mesh_h
 
-#include "object.hpp"
 #include "geometry.hpp"
+#include "object.hpp"
 
-namespace Slab {
+namespace slab {
 
-    class Mesh : public Object
-    {
-    public:
+    class Mesh : public Object {
+       public:
         Mesh(const Geometry &ing);
-        inline virtual bool isRenderable() const
-        {
+        inline virtual bool isRenderable() const {
             return true;
         }
 
-    private:
+       private:
         Geometry geometry;
     };
 
-}
-
+}  // namespace slab
 
 #endif /* mesh_h */

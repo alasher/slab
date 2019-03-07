@@ -1,33 +1,22 @@
-//
-//  object.h
-//  slab
-//
-//  Created by Austin Lasher on 7/23/17.
-//
-//
-
 #ifndef object_hpp
 #define object_hpp
 
-namespace Slab
-{
-    class Object
-    {
-    public:
+namespace slab {
+    class Object {
+       public:
         Object(int x = 0, int y = 0, int z = 0);
         virtual ~Object();
-        inline virtual bool isRenderable() const
-        {
+        inline virtual bool isRenderable() const {
             return false;
         }
 
         void push(int x, int y, int z);
         void moveTo(int x, int y, int z);
 
-    private:
+       private:
         int position[3];
     };
 
-}
+}  // namespace slab
 
 #endif /* object_hpp */

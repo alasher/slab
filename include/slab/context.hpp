@@ -1,24 +1,15 @@
-//
-// Created by alasher on 3/11/17.
-//
-
 #ifndef context_hpp
 #define context_hpp
 
-#include "window.hpp"
-#include "scene.hpp"
 #include "geometry.hpp"
+#include "scene.hpp"
+#include "window.hpp"
 
-namespace Slab
-{
-    enum class SLAB_STATUS : unsigned short {
-        OKAY = 0,
-        DESTROYED,
-        WINDOW_FAILURE
-    };
+namespace slab {
+    enum class SLAB_STATUS : unsigned short { OKAY = 0, DESTROYED, WINDOW_FAILURE };
 
     class Context {
-    public:
+       public:
         Context();
         ~Context();
 
@@ -30,13 +21,12 @@ namespace Slab
         SLAB_STATUS getStatus() const;
         void kill();
 
-    private:
+       private:
         Window *pWindow;
         Scene *pScene;
         SLAB_STATUS eStatus;
         void setStatus(SLAB_STATUS newStatus);
-
     };
-}
+}  // namespace slab
 
 #endif /* context_hpp */

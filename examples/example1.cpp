@@ -1,30 +1,29 @@
 #include <iostream>
-#include <slab/context.hpp>
 #include <slab/camera.hpp>
-#include <slab/triangle.hpp>
+#include <slab/context.hpp>
 #include <slab/mesh.hpp>
+#include <slab/triangle.hpp>
 
 int main(int argc, char **argv) {
-
-    Slab::Context slab;
+    slab::Context eng;
     std::cout << "Hello, world!" << std::endl;
 
-    Slab::Scene main_scene;
+    slab::Scene main_scene;
 
     // Just do one dummy call to initialize the context
-    // TODO: Come up with a more flexible program flow, I shouldn't expect everyone to have to do this.
-    slab.render(main_scene);
+    // TODO: Come up with a more flexible program flow, I shouldn't expect everyone to have to do
+    // this.
+    eng.render(main_scene);
 
-    Slab::Camera *cam = new Slab::Camera();
+    slab::Camera *cam = new slab::Camera();
     main_scene.attachCamera(cam);
 
-    Slab::Triangle t_geom;
-    Slab::Mesh tri{t_geom};
+    slab::Triangle t_geom;
+    slab::Mesh tri{t_geom};
     main_scene.addObject(&tri);
 
-    while(slab.isAlive())
-    {
-        slab.render(main_scene);
+    while (eng.isAlive()) {
+        eng.render(main_scene);
     }
 
     delete cam;

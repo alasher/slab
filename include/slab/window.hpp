@@ -1,25 +1,17 @@
-//
-// Created by alasher on 3/11/17.
-//
-
 #ifndef window_hpp
 #define window_hpp
 
 #include <GLFW/glfw3.h>
 
-#include <string>
 #include <iostream>
+#include <string>
 
-namespace Slab {
+namespace slab {
 
-    enum SLAB_WINDOW_STATUS {
-        SLAB_WINDOW_OKAY,
-        SLAB_WINDOW_FAILED_TO_OPEN,
-        SLAB_WINDOW_CLOSED
-    };
+    enum SLAB_WINDOW_STATUS { SLAB_WINDOW_OKAY, SLAB_WINDOW_FAILED_TO_OPEN, SLAB_WINDOW_CLOSED };
 
     class Window {
-    public:
+       public:
         Window(std::string title = "Slab");
         virtual ~Window();
         bool isReady();
@@ -31,7 +23,7 @@ namespace Slab {
             return eWindowStatus;
         }
 
-    private:
+       private:
         GLFWwindow *pWindow;
         // bool bHasBeenOpened, bWindowIsOpen;
         short nWidth, nHeight;
@@ -44,6 +36,6 @@ namespace Slab {
         // Callbacks
         static void glfw_keypress_callback(GLFWwindow *w, int, int, int, int);
     };
-}
+}  // namespace slab
 
 #endif /* window_hpp */

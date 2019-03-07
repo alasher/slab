@@ -1,23 +1,14 @@
-//
-//  camera.hpp
-//  slab
-//
-//  Created by Austin Lasher on 7/24/17.
-//
-//
-
 #ifndef camera_hpp
 #define camera_hpp
 
 #include "object.hpp"
 
-namespace Slab
-{
+namespace slab {
     /*
 
      // TODO: Right now the user creates a Camera object of their own and passes a pointer
-     // to the context. Yuck! Don't let the user be responsible for their own pointers,
-     // after all it's ${CURRENT_YEAR}! Maybe we should let the context create it's own
+     // to the context. Yuck! Don't let the user be responsible for their own pointers.
+     // Maybe we should let the context create it's own
      // camera. Something like the following:
 
      main_scene.create_camera<MyCoolCameraSubclass>("player_cam");
@@ -31,11 +22,10 @@ namespace Slab
      main_scene.setActiveCamera("camera2"); // Immediately switch to camera2.
 
     */
-    class Camera : public Object
-    {
-    public:
+    class Camera : public Object {
+       public:
         Camera(int x = 0, int y = 0, int z = 0);
     };
-}
+}  // namespace slab
 
 #endif /* camera_hpp */

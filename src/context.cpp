@@ -1,39 +1,30 @@
 #include <slab/context.hpp>
 
-namespace Slab {
-    Context::Context() :
-        pScene(nullptr),
-        eStatus(SLAB_STATUS::OKAY)
-    {
+namespace slab {
+    Context::Context() : pScene(nullptr), eStatus(SLAB_STATUS::OKAY) {
         pWindow = new Window();
-        if (pWindow == nullptr)
-        {
+        if (pWindow == nullptr) {
             setStatus(SLAB_STATUS::WINDOW_FAILURE);
         }
     }
 
-    Context::~Context()
-    {
+    Context::~Context() {
         delete pWindow;
     }
 
-    bool Context::renderFrame()
-    {
+    bool Context::renderFrame() {
         if (pScene == nullptr) return false;
         return render(*pScene);
     }
 
-    bool Context::render(const Slab::Scene &scene) const
-    {
+    bool Context::render(const Scene &scene) const {
         if (getStatus() != SLAB_STATUS::OKAY) return false;
 
-        if (pWindow != nullptr && !pWindow->isOpen())
-        {
-            if(!pWindow->open()) return false;
+        if (pWindow != nullptr && !pWindow->isOpen()) {
+            if (!pWindow->open()) return false;
         }
 
-        if (!scene.hasCamera())
-        {
+        if (!scene.hasCamera()) {
             return false;
         }
 
@@ -43,8 +34,7 @@ namespace Slab {
         const Camera &cam = scene.getCamera();
 
         // TODO: Look into optimizations for this
-        for (const Object *obj : objs)
-        {
+        for (const Object *obj : objs) {
             renderObject(cam, *obj);
         }
 
@@ -52,32 +42,27 @@ namespace Slab {
         return true;
     }
 
-    bool Context::renderObject(const Camera &cam, const Object &obj) const
-    {
+    bool Context::renderObject(const Camera &cam, const Object &obj) const {
         std::cout << "Rendering object!!" << std::endl;
         return false;
     }
 
     // TODO: Maybe need something more specific than "Alive"
-    bool Context::isAlive() const
-    {
+    bool Context::isAlive() const {
         // If Window is not defined, return true.
         // If Window is defined, return true iff it's open
         return (pWindow->isReady() && getStatus() == SLAB_STATUS::OKAY);
     }
 
-    SLAB_STATUS Context::getStatus() const
-    {
+    SLAB_STATUS Context::getStatus() const {
         return eStatus;
     }
 
-    void Context::setStatus(SLAB_STATUS newStatus)
-    {
+    void Context::setStatus(SLAB_STATUS newStatus) {
         eStatus = newStatus;
     }
 
-    void Context::kill()
-    {
+    void Context::kill() {
         setStatus(SLAB_STATUS::DESTROYED);
     }
-}
+}  // namespace slab

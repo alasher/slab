@@ -1,11 +1,3 @@
-//
-//  matrix.hpp
-//  slab
-//
-//  Created by Austin Lasher on 7/24/17.
-//
-
-
 //  I could easily use a pre-defined matrix library like GLM, but
 //  the point of this project is for learning, and I thought it'd
 //  be fun to implement these features myself.
@@ -15,11 +7,10 @@
 
 #include <cstddef>
 
-namespace Slab
-{
-    class Matrix
-    {
-    public:
+namespace slab {
+
+    class Matrix {
+       public:
         Matrix(const size_t na = 4);
         Matrix(const Matrix &other);
         virtual ~Matrix();
@@ -40,11 +31,11 @@ namespace Slab
         Matrix operator+(const Matrix &other);
         Matrix operator-(const Matrix &other);
 
-    private:
+       private:
         float *m;
         const size_t n;
-
     };
-}
+
+}  // namespace slab
 
 #endif /* matrix_hpp */
